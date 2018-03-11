@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+<div id="main">
+
+	<div>
+	<a class="a_active" data-att="cont1" href="#">Tab1</a>
+	<a data-att="cont2" href="#">Tab2</a>
+	<a data-att="cont3" href="#">Tab3</a>
+	
+	</div>
+	
+		<div id="cont1" class="cont div_active">1Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, perspiciatis.</div>
+		<div id="cont2" class="cont">2Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, nisi!</div>
+		<div id="cont3" class="cont">3Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, magni?</div>
+		
+	
+	
+</div>
+
+<style>
+
+	body {
+		background-image: url(1440x900.jpg);
+	}
+	
+	#main {
+		position: relative;
+		height: 300px;
+		margin-left: 50px;
+		margin-top: 50px;
+	}
+
+	a {
+		display: block;
+		float: left;
+		width: 80px;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		text-decoration: none;
+		border: 1px solid #000;
+		//margin-right: 5px;
+		background-color: rgba(30, 0, 0, 0.3);
+		border-top-right-radius: 7px;
+		color: #EEE;
+		text-shadow: 0 0 3px #FFF;
+	}
+
+	.cont {
+		position: absolute;
+		box-sizing: border-box;
+		padding: 15px;
+		border: 1px solid #000;
+		color: #EEE;
+		border-top: none;
+		width: 400px;
+		height: 200px;
+		margin-top: 31px;
+		display: none;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 85%, rgba(5, 5, 5, 0.2) 100%);
+
+	}
+
+	.a_active {
+		background-color: rgba(0, 0, 0, 0.7);
+		border-bottom: none;
+	}
+
+	.div_active {
+		display: block;
+	}
+	
+
+</style>
+
+<script>
+	$(document).ready(function() {
+		
+		$('a').on("click", function() {
+			$('.cont').removeClass("div_active");
+			var temp = $(this).attr('data-att');
+			$('a').removeClass("a_active");
+			$(this).addClass('a_active');
+			$('#' + temp).addClass('div_active');
+		});
+
+	});
+</script>
+	
+</body>
+</html>
